@@ -1,0 +1,8 @@
+test.txt
+*.enc
+/bait
+*.sh
+volatility
+*.raw
+/dump
+*.img
