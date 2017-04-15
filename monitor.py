@@ -24,7 +24,6 @@ def monitor(regex):
 					#handles = re.match(my_regex, files, re.IGNORECASE)
 					match = regex.search(str(files))
 					if match is not None:
-
 						'''
 						if file in files.path:
 						

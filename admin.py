@@ -7,7 +7,6 @@ def command(argv=None, debug=True):
     shell32 = ctypes.windll.shell32
     if argv is None and shell32.IsUserAnAdmin():
         return True
-    ''
     if argv is None:
         argv = sys.argv
     if hasattr(sys, '_MEIPASS'):
@@ -16,6 +15,7 @@ def command(argv=None, debug=True):
     else:
         arguments = map(unicode, argv)
     argument_line = u''.join(arguments)
+    print argument_line
     executable = unicode("cmd.exe")
     if debug:
         print 'Command line: ', executable, argument_line
