@@ -44,7 +44,7 @@ def monitor(regex):
 						print "Dumpfile: " + randdump
 				
 						dumpcmd = str(os.getcwd()) + '\MemoryDD.bat'					
-						admin.command(dumpcmd)	
+						admin.command_v2(dumpcmd)	
 
 						#cmdblock = subprocess.Popen(dumpcmd, shell=True, stdout = subprocess.PIPE)
 						#cmdblock.wait()

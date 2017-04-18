@@ -24,6 +24,20 @@ def command(argv=None, debug=False):
         return False
     return None
 
+def command_v2(argv=None, debug=False):
+    shell32 = ctypes.windll.shell32
+    if argv is None and shell32.IsUserAnAdmin():
+        return True
+    if argv is None:
+        argv = sys.argv
+    arguments = map(unicode, argv)
+    executable = unicode("cmd.exe")
+    print u"runas", executable, "/k "
+    ret = shell32.ShellExecuteW(None, u"runas", executable, "/k ", None, 1)
+    if int(ret) <= 32:
+        return False
+    return None
+
 
 if __name__ == '__main__':
     ret = command()

@@ -14,3 +14,6 @@
 * Moved to VMWare Fusion
 * Otainted a copy of hidden-tear
 * Successfully able to aquire a copy of memory while ransomware is encrypting
+
+## [04-18-2017]
+* Add admin privilege request earlier in the flow
