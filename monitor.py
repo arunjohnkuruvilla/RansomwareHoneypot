@@ -45,7 +45,7 @@ def monitor(regex):
 
 						dumpcmd = str(os.path.dirname(os.path.realpath(__file__))) + '\MemoryDD.bat'					
 						
-						print dumpcmd
+						os.system(dumpcmd)
 
 						#cmdblock = subprocess.Popen(dumpcmd, stdout = subprocess.PIPE)
 						#cmdblock.wait()
