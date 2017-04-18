@@ -36,7 +36,7 @@ def monitor(regex):
 						sys.stdout.write('\a')
 						print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 						
-						proci.suspend()
+						# proci.suspend()
 						
 						offpid = pinfo['pid']
 
