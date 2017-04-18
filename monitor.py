@@ -5,7 +5,7 @@ import os
 import subprocess
 import threading
 import re
-import admin
+import admin_2
 
 safe_pids = []
 def monitor(regex):
@@ -46,6 +46,9 @@ def monitor(regex):
 						dumpcmd = str(os.getcwd()) + '\MemoryDD.bat'					
 						admin.command_v2(dumpcmd)	
 
+						parent = subprocess.Popen(dumpcmd, stderr=subprocess.PIPE)
+
+
 						#cmdblock = subprocess.Popen(dumpcmd, shell=True, stdout = subprocess.PIPE)
 						#cmdblock.wait()
 						
@@ -62,8 +65,8 @@ def monitor(regex):
 	return False
 
 def main():
-	#if not admin.isUserAdmin():
-	#	admin.runAsAdmin()
+	if not admin_2.isUserAdmin():
+		admin_2.runAsAdmin()
 	while True:
 		my_regex = r".*" + re.escape("sample") + r".*"
 	
