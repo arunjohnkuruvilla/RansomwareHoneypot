@@ -43,7 +43,7 @@ def monitor(regex):
 						randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp" ;
 						print "Dumpfile: " + randdump
 				
-						print os.path.realpath(__file__)
+						print os.path.dirname(os.path.realpath(__file__))
 
 						dumpcmd = str(os.getcwd()) + '\MemoryDD.bat'					
 						
