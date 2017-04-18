@@ -49,8 +49,8 @@ def monitor(regex):
 						
 						print dumpcmd
 
-						cmdblock = subprocess.Popen(dumpcmd, stdout = subprocess.PIPE)
-						cmdblock.wait()
+						#cmdblock = subprocess.Popen(dumpcmd, stdout = subprocess.PIPE)
+						#cmdblock.wait()
 						
 						# proci.kill()	
 						'''
