@@ -1,8 +1,10 @@
 import admin
 import monitor
+import os
 
 def main():
-	command = "python monitor.py"
+	abs_path = os.path.abspath(monitor.py)
+	command = "python " + str(abspath)
 	admin.command(command)	
 
 if __name__ == '__main__':
