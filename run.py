@@ -1,17 +1,3 @@
-'''import admin
-import monitor
-import os
-
-def main():
-	abs_path = os.path.abspath("monitor.py")
-	command = "python " + str(abs_path) 
-	admin.command(command)	
-
-if __name__ == '__main__':
-	main()
-
-'''
-
 #! /usr/bin/env python2.7
 import ctypes
 import enum
@@ -70,7 +56,7 @@ def bootstrap():
         hinstance = ctypes.windll.shell32.ShellExecuteW(
             None, 
             u'runas', 
-            unicode("cmd.exe"), 
+            unicode("python"), 
             argument_line, 
             None, 
             SW.SHOWNORMAL
