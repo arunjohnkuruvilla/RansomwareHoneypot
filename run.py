@@ -70,7 +70,7 @@ def bootstrap():
         hinstance = ctypes.windll.shell32.ShellExecuteW(
             None, 
             u'runas', 
-            sys.executable, 
+            "cmd.exe", 
             argument_line, 
             None, 
             SW.SHOWNORMAL
