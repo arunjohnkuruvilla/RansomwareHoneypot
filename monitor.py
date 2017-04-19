@@ -37,7 +37,7 @@ def monitor(regex):
 						
 						os.system(dumpcmd)
 
-						for root, dirnames, filenames in os.walk('.'):
+						for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
 							print filenames
 							for filename in fnmatch.filter(filenames, '*.img'):
 								print os.path.join(root, filename)
