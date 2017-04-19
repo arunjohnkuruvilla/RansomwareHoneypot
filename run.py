@@ -51,7 +51,7 @@ def bootstrap():
     	# Get current working directory
     	current_path = str(os.path.dirname(os.path.realpath(__file__)))
 
-    	argument_line = "/k python" + current_path + '\\' + sys.argv[0]
+    	argument_line = "/k python " + current_path + '\\' + sys.argv[0]
     	argument_line = u''.join(argument_line)
     	print argument_line
 
