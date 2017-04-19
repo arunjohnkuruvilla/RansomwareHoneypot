@@ -16,6 +16,7 @@ if __name__ == '__main__':
 import ctypes
 import enum
 import sys
+import os
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
