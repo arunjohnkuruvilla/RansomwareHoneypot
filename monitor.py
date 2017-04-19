@@ -48,7 +48,7 @@ def monitor(regex):
 				pass
 	return False
 
-def main():
+def initialize():
 	#if not admin.isUserAdmin():
 	#	admin.runAsAdmin()
 	while True:
@@ -59,6 +59,9 @@ def main():
 		status = monitor(regex)
 		if status == True:
 			return	
+
+def main():
+	intialize()
 
 if __name__ == '__main__':
 	try:

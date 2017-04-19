@@ -4,6 +4,8 @@ import enum
 import sys
 import os
 
+import monitor
+
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
 
@@ -66,9 +68,7 @@ def bootstrap():
 
 
 def main():
-	print "hi"
-    # Your Code Here
-
+	monitor.initialize()
 
 if __name__ == '__main__':
     bootstrap()
