@@ -63,7 +63,7 @@ def bootstrap():
     	# Get current working directory
     	current_path = str(os.path.dirname(os.path.realpath(__file__)))
 
-    	argument_line = current_path + '\\' + sys.argv[0]
+    	argument_line = "python " + current_path + '\\' + sys.argv[0]
     	print argument_line
         hinstance = ctypes.windll.shell32.ShellExecuteW(
             None, 
