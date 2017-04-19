@@ -64,11 +64,12 @@ def bootstrap():
     	current_path = str(os.path.dirname(os.path.realpath(__file__)))
 
     	argument_line = "/k python " + current_path + '\\' + sys.argv[0]
+    	argument_line = u''.join(argument_line)
     	print argument_line
 
         hinstance = ctypes.windll.shell32.ShellExecuteW(
             None, 
-            'runas', 
+            u'runas', 
             sys.executable, 
             argument_line, 
             None, 
