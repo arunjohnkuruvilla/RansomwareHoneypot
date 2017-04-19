@@ -57,8 +57,18 @@ def bootstrap():
     if ctypes.windll.shell32.IsUserAnAdmin():
         main()
     else:
+    	# ret = shell32.ShellExecuteW(None, u"runas", executable, "/k " + argument_line, None, 1)
+
+    	# Get current working directory
+    	current_path = str(os.path.dirname(os.path.realpath(__file__)))
+
         hinstance = ctypes.windll.shell32.ShellExecuteW(
-            None, 'runas', sys.executable, sys.argv[0], None, SW.SHOWNORMAL
+            None, 
+            'runas', 
+            sys.executable, 
+            sys.argv[0], 
+            None, 
+            SW.SHOWNORMAL
         )
         if hinstance <= 32:
             raise RuntimeError(ERROR(hinstance))
