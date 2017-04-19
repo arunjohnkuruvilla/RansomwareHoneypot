@@ -6,11 +6,11 @@ import subprocess
 import threading
 import re
 import admin
+import glob
+import fnmatch
 
-safe_pids = []
 def monitor(regex):
 	
-	global safe_pids
 	for proc in psutil.process_iter():
 		try:
 			pinfo = proc.as_dict(attrs=['pid'])
@@ -20,46 +20,30 @@ def monitor(regex):
 			try:
 				proci = psutil.Process(pinfo['pid'])
 				for files in proci.open_files() :
-					#print files.path
-					#handles = re.match(my_regex, files, re.IGNORECASE)
 					match = regex.search(str(files))
 					if match is not None:
-						'''
-						if file in files.path:
-						
-						if pinfo['pid'] in safe_pids:
-							return False, 0
-						else:
-							safe_pids.append(pinfo['pid'])
-							return True, pinfo['pid']
-						'''
+
 						sys.stdout.write('\a')
+
 						print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
-						
-						# proci.suspend()
 						
 						offpid = pinfo['pid']
 
-						randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp" ;
+						randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp";
+
 						print "Dumpfile: " + randdump
 
 						dumpcmd = str(os.path.dirname(os.path.realpath(__file__))) + '\MemoryDD.bat'					
 						
 						os.system(dumpcmd)
 
-						#cmdblock = subprocess.Popen(dumpcmd, stdout = subprocess.PIPE)
-						#cmdblock.wait()
-						
-						# proci.kill()	
-						'''
-						'''
+						for root, dirnames, filenames in os.walk('.'):
+    						for filename in fnmatch.filter(filenames, '*.img'):
+    							print os.path.join(root, filename)
+    							
 						return True
-					
-					#print match
-
 			except:
 				pass
-
 	return False
 
 def main():

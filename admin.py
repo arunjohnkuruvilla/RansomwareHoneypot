@@ -10,7 +10,6 @@ def command(argv=None, debug=False):
     if argv is None:
         argv = sys.argv
     if hasattr(sys, '_MEIPASS'):
-        # Support pyinstaller wrapped program.
         arguments = map(unicode, argv[1:])
     else:
         arguments = map(unicode, argv)
