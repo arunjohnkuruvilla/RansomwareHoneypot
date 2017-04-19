@@ -24,18 +24,6 @@ def command(argv=None, debug=False):
         return False
     return None
 
-def command_v2(argv=None, debug=False):
-    shell32 = ctypes.windll.shell32
-    argument_line = u''.join(map(unicode, argv))
-    executable = unicode("cmd.exe")
-    if debug:
-        print 'Command line: ', executable, argument_line
-    print u"runas", executable, "/k " + argument_line
-    ret = shell32.ShellExecuteW(None, u"runas", executable, "/k " + argument_line, None, 1)
-    if int(ret) <= 32:
-        return False
-    return None
-
 
 if __name__ == '__main__':
     ret = command()
