@@ -65,14 +65,18 @@ def bootstrap():
 
     	argument_line = "python " + current_path + '\\' + sys.argv[0]
     	print argument_line
-        hinstance = ctypes.windll.shell32.ShellExecuteW(
-            None, 
-            'runas', 
-            sys.executable, 
-            argument_line, 
-            None, 
-            SW.SHOWNORMAL
-        )
+    	try:
+	        hinstance = ctypes.windll.shell32.ShellExecuteW(
+	            None, 
+	            'runas', 
+	            sys.executable, 
+	            argument_line, 
+	            None, 
+	            SW.SHOWNORMAL
+	        )
+	    except Exception as e:
+	    	print e.message
+	    	
         if hinstance <= 32:
             raise RuntimeError(ERROR(hinstance))
 
