@@ -13,6 +13,7 @@ import fnmatch
 
 class Monitor(object):
 	def __init__(self, regex=None):
+		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
 			self.regex = regex
 			self.regex_object = re.compile(self.regex, re.IGNORECASE)
@@ -44,9 +45,13 @@ class Monitor(object):
 
 							print "Dumpfile: " + randdump
 
-							dumpcmd = str(os.path.dirname(os.path.realpath(__file__))) + '\MemoryDD.bat'					
+							dumpcmd = str(self.current_path) + '\MemoryDD.bat'					
 							
-							os.system(dumpcmd)
+							try: 
+								os.system(dumpcmd)
+							except Exception as e:
+								print e.message
+								pass
 
 							for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
 								for filename in fnmatch.filter(filenames, '*.img'):
@@ -57,6 +62,11 @@ class Monitor(object):
 					pass
 		return False
 
+	def extract_image():
+		for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
+			for filename in fnmatch.filter(filenames, '*.img'):
+				print os.path.join(root, filename)
+		return 
 	def initialize(self):
 		while True:
 			status = self.monitor_processlist()
