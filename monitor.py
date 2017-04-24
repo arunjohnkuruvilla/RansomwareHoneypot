@@ -12,13 +12,15 @@ import glob
 import fnmatch
 
 class Monitor(object):
-	self.regex = r".*" + re.escape("sample") + r".*"
-	self.regex_object = re.compile(self.regex, re.IGNORECASE)
+	regex = r".*" + re.escape("sample") + r".*"
+	regex_object = re.compile(self.regex, re.IGNORECASE)
 
 	def __init__(self, regex=None):
 		if regex != None:
 			self.regex = regex
 			self.regex_object = re.compile(self.regex, re.IGNORECASE)
+
+		else
 		return
 
 	def monitor_processlist(self):
