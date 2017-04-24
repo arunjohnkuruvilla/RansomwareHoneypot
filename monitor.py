@@ -19,8 +19,6 @@ class Monitor(object):
 		if regex != None:
 			self.regex = regex
 			self.regex_object = re.compile(self.regex, re.IGNORECASE)
-
-		else
 		return
 
 	def monitor_processlist(self):
