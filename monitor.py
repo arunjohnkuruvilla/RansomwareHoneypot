@@ -34,7 +34,7 @@ class Monitor(object):
 					for files in proci.open_files() :
 						match = self.regex_object.search(str(files))
 						if match is not None:
-
+							print match
 							sys.stdout.write('\a')
 
 							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
