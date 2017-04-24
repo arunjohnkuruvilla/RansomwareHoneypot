@@ -75,7 +75,7 @@ class Monitor(object):
 
 def main():
 	monitor_object = Monitor()
-	monitor_object.intialize(r".*" + re.escape("sample") + r".*")
+	monitor_object.intialize()
 
 if __name__ == '__main__':
 	try:
