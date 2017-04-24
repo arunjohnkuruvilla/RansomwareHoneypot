@@ -46,8 +46,6 @@ def bootstrap():
     if ctypes.windll.shell32.IsUserAnAdmin():
         main()
     else:
-    	# ret = shell32.ShellExecuteW(None, u"runas", executable, "/k " + argument_line, None, 1)
-
     	# Get current working directory
     	current_path = str(os.path.dirname(os.path.realpath(__file__)))
 
@@ -68,7 +66,8 @@ def bootstrap():
 
 
 def main():
-	monitor.initialize()
+    monitor_object = monitor.Monitor()
+	monitor_object.initialize()
 
 if __name__ == '__main__':
     bootstrap()

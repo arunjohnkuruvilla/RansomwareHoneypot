@@ -11,57 +11,61 @@ import admin
 import glob
 import fnmatch
 
-def monitor(regex):
-	
-	for proc in psutil.process_iter():
-		try:
-			pinfo = proc.as_dict(attrs=['pid'])
-		except psutil.NoSuchProcess:
-			pass
-		else:
+def Monitor(object):
+	self.regex = r".*" + re.escape("sample") + r".*"
+	self.regex_object = re.compile(self.regex, re.IGNORECASE)
+
+	def __init__(self, regex=None):
+		if regex != None:
+			self.regex = regex
+			self.regex_object = re.compile(self.regex, re.IGNORECASE)
+		return
+
+	def monitor_processlist(self):
+		for proc in psutil.process_iter():
 			try:
-				proci = psutil.Process(pinfo['pid'])
-				for files in proci.open_files() :
-					match = regex.search(str(files))
-					if match is not None:
-
-						sys.stdout.write('\a')
-
-						print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
-						
-						offpid = pinfo['pid']
-
-						randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp";
-
-						print "Dumpfile: " + randdump
-
-						dumpcmd = str(os.path.dirname(os.path.realpath(__file__))) + '\MemoryDD.bat'					
-						
-						os.system(dumpcmd)
-
-						for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
-							for filename in fnmatch.filter(filenames, '*.img'):
-								print os.path.join(root, filename)
-								
-						return True
-			except:
+				pinfo = proc.as_dict(attrs=['pid'])
+			except psutil.NoSuchProcess:
 				pass
-	return False
+			else:
+				try:
+					proci = psutil.Process(pinfo['pid'])
+					for files in proci.open_files() :
+						match = self.regex_object.search(str(files))
+						if match is not None:
 
-def initialize():
-	#if not admin.isUserAdmin():
-	#	admin.runAsAdmin()
-	while True:
-		my_regex = r".*" + re.escape("sample") + r".*"
-	
-		regex = re.compile(my_regex, re.IGNORECASE)
+							sys.stdout.write('\a')
 
-		status = monitor(regex)
-		if status == True:
-			return	
+							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
+							
+							offpid = pinfo['pid']
+
+							randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp";
+
+							print "Dumpfile: " + randdump
+
+							dumpcmd = str(os.path.dirname(os.path.realpath(__file__))) + '\MemoryDD.bat'					
+							
+							os.system(dumpcmd)
+
+							for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
+								for filename in fnmatch.filter(filenames, '*.img'):
+									print os.path.join(root, filename)
+									
+							return True
+				except:
+					pass
+		return False
+
+	def initialize(self):
+		while True:
+			status = self.monitor_processlist()
+			if status == True:
+				return	
 
 def main():
-	intialize()
+	monitor_object = Monitor()
+	monitor_object.intialize(r".*" + re.escape("sample") + r".*")
 
 if __name__ == '__main__':
 	try:

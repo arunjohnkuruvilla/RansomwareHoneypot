@@ -6,3 +6,5 @@ volatility
 *.raw
 /dump
 *.img
+*.pdf
+*.pyc

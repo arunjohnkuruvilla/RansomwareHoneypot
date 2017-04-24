@@ -1,4 +1,5 @@
 import sys
+import generate
 
 def module_check():
 	status = True
@@ -9,6 +10,8 @@ def module_check():
 		status = False
 	return status
 
+def help_text():
+	return
 def main():
 	if len(sys.argv) < 2:
 		print "No command given"
@@ -20,8 +23,12 @@ def main():
 		else:
 			print "Required modules not present."
 
+	# Generate folder structure
 	elif sys.argv[1] == "generate":
-		print "'generate' command selected"
+		file_system = generate.FS()
+		file_system.generate_pdf()
+		file_system.generate_xls()
+		file_system.generate_txt()
 	else:
 		print "Invalid command given"
 		print "usage: setup.py [-h] command"
