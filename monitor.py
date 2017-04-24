@@ -53,9 +53,10 @@ class Monitor(object):
 								print e.message
 								pass
 
-							for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
+							for root, dirnames, filenames in os.walk(self.current_path):
 								for filename in fnmatch.filter(filenames, '*.img'):
-									print os.path.join(root, filename)
+									print filename
+									# print os.path.join(root, filename)
 									
 							return True
 				except:
