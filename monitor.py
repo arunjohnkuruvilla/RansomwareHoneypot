@@ -34,8 +34,8 @@ class Monitor(object):
 					for files in proci.open_files() :
 						match = self.regex_object.search(str(files))
 						if match is not None:
-							print match
-							sys.stdout.write('\a')
+							#print match
+							#sys.stdout.write('\a')
 
 							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 							
@@ -57,8 +57,8 @@ class Monitor(object):
 								print e.message
 								pass
 
-							for root, dirnames, filenames in os.walk(self.current_path):
-								print fnmatch.filter(filenames, '*.img')
+							#for root, dirnames, filenames in os.walk(self.current_path):
+							#	print fnmatch.filter(filenames, '*.img')
 									#print filename
 								#	# print os.path.join(root, filename)
 									
