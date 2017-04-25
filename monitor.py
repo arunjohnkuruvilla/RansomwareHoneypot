@@ -48,7 +48,8 @@ class Monitor(object):
 							dumpcmd = str(self.current_path) + '\MemoryDD.bat'					
 							
 							try: 
-								os.system(dumpcmd)
+								#os.system(dumpcmd)
+								subprocess.check_call(dumpcmd, *, stdin=None, stdout=None, stderr=None, shell=False)
 							except Exception as e:
 								print e.message
 								pass
