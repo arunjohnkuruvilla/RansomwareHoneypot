@@ -45,7 +45,7 @@ class Monitor(object):
 
 							print "Dumpfile: " + randdump
 
-							dumpcmd = str(self.current_path) + '\MemoryDD.bat'					
+							dumpcmd = str(self.current_path) + '\Memoryze.exe -script=AcquireMemory.Batch.xml'					
 							
 							try: 
 								#os.system(dumpcmd)
@@ -58,10 +58,8 @@ class Monitor(object):
 								pass
 
 							for root, dirnames, filenames in os.walk(self.current_path):
-								for filename in filenames:
-									print filename
-								#for filename in fnmatch.filter(filenames, '*.img'):
-								#	print filename
+								print fnmatch.filter(filenames, '*.img')
+									#print filename
 								#	# print os.path.join(root, filename)
 									
 							return True
