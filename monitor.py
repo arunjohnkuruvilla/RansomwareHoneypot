@@ -50,8 +50,7 @@ class Monitor(object):
 							try: 
 								#os.system(dumpcmd)
 								#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
-								p = subprocess.call([dumpcmd])
-								p.communicate()
+								p = subprocess.Popen([dumpcmd])
 								
 							except Exception as e:
 								print e.message
