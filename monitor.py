@@ -49,7 +49,7 @@ class Monitor(object):
 							
 							try: 
 								#os.system(dumpcmd)
-								subprocess.check_call(dumpcmd, None, stdin=None, stdout=None, stderr=None, shell=False)
+								subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							except Exception as e:
 								print e.message
 								pass
