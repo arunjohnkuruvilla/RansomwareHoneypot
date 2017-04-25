@@ -34,8 +34,8 @@ class Monitor(object):
 					for files in proci.open_files() :
 						match = self.regex_object.search(str(files))
 						if match is not None:
-							#print match
-							#sys.stdout.write('\a')
+							print match
+							sys.stdout.write('\a')
 
 							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 							
@@ -45,20 +45,23 @@ class Monitor(object):
 
 							print "Dumpfile: " + randdump
 
-							dumpcmd = str(self.current_path) + '\Memoryze.exe -script=AcquireMemory.Batch.xml'					
+							dumpcmd = str(self.current_path) + '\MemoryDD.bat'					
 							
 							try: 
 								#os.system(dumpcmd)
 								#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
-								p = subprocess.Popen([dumpcmd])
+								p = subprocess.call([dumpcmd])
+								p.communicate()
 								
 							except Exception as e:
 								print e.message
 								pass
 
-							#for root, dirnames, filenames in os.walk(self.current_path):
-							#	print fnmatch.filter(filenames, '*.img')
-									#print filename
+							for root, dirnames, filenames in os.walk(self.current_path):
+								for filename in filenames:
+									print filename
+								#for filename in fnmatch.filter(filenames, '*.img'):
+								#	print filename
 								#	# print os.path.join(root, filename)
 									
 							return True
