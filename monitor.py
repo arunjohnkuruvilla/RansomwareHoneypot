@@ -81,6 +81,7 @@ class Monitor(object):
 				print os.path.join(root, filename)
 		return 
 	def initialize(self):
+		print "monitor initializing"
 		while True:
 			status = self.monitor_processlist()
 			if status == True:
