@@ -12,9 +12,9 @@ import src.admin as admin
 
 def main():
 	if ctypes.windll.shell32.IsUserAnAdmin():
-        monitor_object = monitor.Monitor()
+		monitor_object = monitor.Monitor()
 		monitor_object.initialize()
-    else:
+	else:
 		admin.bootstrap(sys.argv[0])
 		sys.exit(0)
 
