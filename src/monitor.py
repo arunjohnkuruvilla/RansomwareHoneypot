@@ -10,6 +10,7 @@ import re
 import admin
 import glob
 import fnmatch
+import time 
 
 import config
 
@@ -51,6 +52,7 @@ class Monitor(object):
 							p = subprocess.call([dumpcmd])
 								
 							while(True):
+								time.sleep(1)
 								for root, dirnames, filenames in os.walk(self.config['package_path']):
 									print fnmatch.filter(filenames, '*.img') != []
 									#	print filename
