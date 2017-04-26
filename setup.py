@@ -1,5 +1,5 @@
 import sys
-import generate
+import src.generate as generate
 
 def module_check():
 	status = True
@@ -26,6 +26,7 @@ def main():
 	# Generate folder structure
 	elif sys.argv[1] == "generate":
 		file_system = generate.FS()
+		file_system.create_dir_tree()
 		file_system.generate_pdf()
 		file_system.generate_xls()
 		file_system.generate_txt()

@@ -15,6 +15,7 @@ class Config(dict):
 		self['package_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 		self['package_src_path'] = os.path.dirname(os.path.realpath(__file__))
 		self['package_externals_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + '\externals'
+		self['package_dump_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + '\memory_dumps'
 
 	def from_file(self):
 		"""Updates the values in the config from a Python file."""

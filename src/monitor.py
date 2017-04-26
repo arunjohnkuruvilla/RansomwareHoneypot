@@ -44,8 +44,10 @@ class Monitor(object):
 
 							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 
-							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'	
+							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 
+							print dumpcmd
+							
 							print self.config['package_externals_path']			
 							 
 							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
@@ -53,7 +55,7 @@ class Monitor(object):
 								
 							while(True):
 								time.sleep(1)
-								for root, dirnames, filenames in os.walk(self.config['package_path']):
+								for root, dirnames, filenames in os.walk(self.config['package_dump']):
 									for filename in fnmatch.filter(filenames, '*.img'):
 										print os.path.join(root, filename)
 										break

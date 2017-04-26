@@ -6,8 +6,6 @@ from string import ascii_lowercase
 from fpdf import FPDF
 
 class FS(object):
-	if not os.path.exists("file_system"):
-		os.makedirs("file_system")
 
 	def generate_pdf(self):
 		pdf = FPDF()
@@ -24,6 +22,12 @@ class FS(object):
 
 	def generate_txt(self):
 		return
+
+	def generate_dir_tree(self):
+		if not os.path.exists("file_system"):
+			os.makedirs("file_system")
+		if not os.path.exists("memory_dumps"):
+			os.makedirs("memory_dumps")
 
 def main():
 	file_system = FS()
