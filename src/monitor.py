@@ -32,8 +32,7 @@ class Monitor(object):
 	def monitor_processlist(self):
 		for proc in psutil.process_iter():
 			try:
-				pinfo = proc.as_dict(attrs=['pid'])
-				print self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
+				pinfo = proc.as_dict(attrs=['pid'])	
 			except psutil.NoSuchProcess:
 				pass
 			else:
