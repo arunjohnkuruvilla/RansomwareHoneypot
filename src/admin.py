@@ -76,11 +76,10 @@ class Admin(object):
     def __init__(self):
         return 
 
-    def bootstrap(self, script_name):
+    def bootstrap(self, script_path):
         # Get current working directory
-        current_path = str(os.path.dirname(os.path.realpath(__file__)))
 
-        argument_line = "/k python " + current_path + '\\' + script_name
+        argument_line = "/k python " + script_path + '\\' + script_name
         argument_line = u''.join(argument_line)
         print argument_line
 
