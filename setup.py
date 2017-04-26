@@ -1,5 +1,5 @@
 import sys
-import src.generate as generate
+import src.filesystem as filesystem
 
 def module_check():
 	status = True

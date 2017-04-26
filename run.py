@@ -14,6 +14,7 @@ import os
 import src.monitor as monitor
 import src.admin as admin
 import src.config as config
+import src.report as report
 
 def main():
 	config_object = config.Config()
@@ -26,7 +27,11 @@ def main():
 		print "Current priviledge level is Administrator. Initializing and starting monitor."
 		try:
 			monitor_object = monitor.Monitor()
-			monitor_object.initialize()
+			monitor_status = monitor_object.initialize()
+			if monitor_status:
+				report_object = report.Report()
+				report_object.generate_report()
+
 		except Exception as e:
 			print e.message
 	else:
