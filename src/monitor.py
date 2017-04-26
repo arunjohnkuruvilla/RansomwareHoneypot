@@ -50,6 +50,7 @@ class Monitor(object):
 							
 						
 						p = subprocess.check_call(dumpcmd)
+						print "mem called"
 						print p
 						'''
 						except Exception as e:
