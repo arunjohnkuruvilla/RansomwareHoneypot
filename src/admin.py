@@ -3,7 +3,7 @@
     config
     ~~~~~~~~~~~~
 
-    Implements the configuration related objects.
+    Implements the adminstrator privilege excalation.
 
     :copyright: (c) 2017 by Arun John Kuruvilla.
 """
@@ -52,8 +52,6 @@ class Admin(object):
         self.config = config.Config()
 
     def bootstrap(self, script):
-        # Get current working directory
-
         argument_line = "/k python " + script
         argument_line = u''.join(argument_line)
 

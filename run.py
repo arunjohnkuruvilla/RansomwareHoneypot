@@ -30,11 +30,13 @@ def main():
 		except Exception as e:
 			print e.message
 	else:
+		print "Current priviledge level is not Administrator. Initializing and starting privilege escalation."
 		# If current user does not have adminstrator privileges
 		current_script = config_object['package_path'] + '\\' + __file__
-		
+
+		# Initialie admin object
 		admin_object = admin.Admin()
-		admin_object.bootstrap(current_script)
+		admin_object.bootstrap()
 		sys.exit(0)
 
 if __name__ == '__main__':
