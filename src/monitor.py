@@ -52,12 +52,12 @@ class Monitor(object):
 							 
 							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							try:
-								p = subprocess.Popen([dumpcmd])
+								p = subprocess.call(dumpcmd)
 								print p
 								
 							except Exception as e:
 								pass
-								
+
 							while(True):
 								time.sleep(1)
 								for root, dirnames, filenames in os.walk(self.config['package_dump']):
