@@ -18,7 +18,6 @@ class Monitor(object):
 	def __init__(self, regex=None):
 		print "initial"
 		self.config = config.Config
-		print self.config
 		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
 			self.regex = regex
@@ -53,7 +52,7 @@ class Monitor(object):
 							print "Dumpfile: " + randdump
 
 							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'	
-							print dumpcmd				
+							print self.config['package_externals_path']			
 							
 							try: 
 								#os.system(dumpcmd)
