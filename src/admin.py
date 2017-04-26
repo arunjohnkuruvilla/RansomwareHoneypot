@@ -71,7 +71,7 @@ class ERROR(enum.IntEnum):
     SHARE = 26
 
 class Admin(object):
-    def __init__():
+    def __init__(self):
         return 
 
     def bootstrap(self, script_name):
