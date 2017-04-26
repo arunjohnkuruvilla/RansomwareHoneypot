@@ -3,8 +3,8 @@ import ctypes
 import sys
 import os
 
-import src.monitor
-import src.admin
+import src.monitor as monitor
+import src.admin as admin
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
