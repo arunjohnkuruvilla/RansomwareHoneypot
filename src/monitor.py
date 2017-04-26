@@ -40,18 +40,17 @@ class Monitor(object):
 					for files in proci.open_files() :
 						match = self.regex_object.search(str(files))
 						if match is not None:
-							print match
-							sys.stdout.write('\a')
 
 							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 							
 							offpid = pinfo['pid']
 
-							randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp";
+							# randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp";
 
-							print "Dumpfile: " + randdump
+							# print "Dumpfile: " + randdump
 
 							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'	
+							
 							print self.config['package_externals_path']			
 							
 							try: 

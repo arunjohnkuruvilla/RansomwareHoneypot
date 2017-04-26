@@ -36,7 +36,7 @@ def main():
 
 		# Initialie admin object
 		admin_object = admin.Admin()
-		admin_object.bootstrap()
+		admin_object.bootstrap(current_script)
 		sys.exit(0)
 
 if __name__ == '__main__':

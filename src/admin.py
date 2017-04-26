@@ -51,9 +51,17 @@ class Admin(object):
     def __init__(self):
         self.config = config.Config()
 
-    def bootstrap(self, script):
-        argument_line = "/k python " + script
-        argument_line = u''.join(argument_line)
+    def bootstrap(self, script_path):
+        if script_path == None:
+            raise TypeError("No script path provided for excalation")
+
+        if type(script_path) != str:
+            raise TypeError("Invalid script path given")
+
+        if not os.path.exists(script_path):
+            raise TypeError("Script does not exist.")
+
+        argument_line = u''.join("/k python " + script_path)
 
         hinstance = ctypes.windll.shell32.ShellExecuteW(
             None, 
