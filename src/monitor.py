@@ -48,13 +48,16 @@ class Monitor(object):
 							 
 						#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							
-						try:
-							p = subprocess.check_call(dumpcmd)
+						
+						p = subprocess.check_call(dumpcmd)
+						print p
+						'''
 						except Exception as e:
 							print "exception thrown by subprocess"
 							print e.message
 							return True
-
+						'''
+						'''
 						while(True):
 							time.sleep(1)
 							for root, dirnames, filenames in os.walk(self.config['package_dump']):
@@ -64,7 +67,7 @@ class Monitor(object):
 									#	print filename
 									#	print filename
 									#	# print os.path.join(root, filename)
-									
+						'''
 						return True	
 			except psutil.NoSuchProcess:
 				pass
