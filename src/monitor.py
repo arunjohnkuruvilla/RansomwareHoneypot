@@ -52,7 +52,7 @@ class Monitor(object):
 								
 							while(True):
 								for root, dirnames, filenames in os.walk(self.config['package_path']):
-									print fnmatch.filter(filenames, '*.img') != []:
+									print fnmatch.filter(filenames, '*.img') != []
 									#	print filename
 									#	print filename
 									#	# print os.path.join(root, filename)
