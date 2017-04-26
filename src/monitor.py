@@ -17,7 +17,7 @@ class Monitor(object):
 	# Initialization for Monitor Class
 	def __init__(self, regex=None):
 		print "initial"
-		self.config = config.Config
+		self.config = config.Config()
 		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
 			self.regex = regex
