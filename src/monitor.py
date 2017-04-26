@@ -54,7 +54,8 @@ class Monitor(object):
 							
 							try:
 								p = subprocess.call([dumpcmd], stdout=FNULL, stderr=subprocess.STDOUT)
-
+							except Exception as e:
+								print e.message
 
 							while(True):
 								time.sleep(1)
