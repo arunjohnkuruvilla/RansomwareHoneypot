@@ -72,7 +72,7 @@ class Monitor(object):
 							return True
 				except Exception as e:
 					print "EXCEPTION THROWN"
-					print e.message
+					print e
 					pass
 		return False
 
