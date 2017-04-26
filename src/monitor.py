@@ -52,7 +52,8 @@ class Monitor(object):
 
 							print "Dumpfile: " + randdump
 
-							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'					
+							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'	
+							print dumpcmd				
 							
 							try: 
 								#os.system(dumpcmd)
