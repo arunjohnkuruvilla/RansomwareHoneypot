@@ -11,9 +11,14 @@ import admin
 import glob
 import fnmatch
 
+import config
+
 class Monitor(object):
 	# Initialization for Monitor Class
 	def __init__(self, regex=None):
+		print "initial"
+		self.config = config.Config
+		print self.config
 		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
 			self.regex = regex
@@ -77,6 +82,7 @@ class Monitor(object):
 				print os.path.join(root, filename)
 		return 
 	def initialize(self):
+		print "monitor initializing"
 		while True:
 			status = self.monitor_processlist()
 			if status == True:
