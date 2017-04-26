@@ -52,8 +52,9 @@ class Monitor(object):
 							 
 							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							
-							p = subprocess.call(dumpcmd, stdout=FNULL, stderr=subprocess.STDOUT)
-							print p
+							try:
+								p = subprocess.call([dumpcmd], stdout=FNULL, stderr=subprocess.STDOUT)
+
 
 							while(True):
 								time.sleep(1)
