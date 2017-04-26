@@ -5,7 +5,7 @@ import os
 
 sys.path.append('src')
 import monitor
-from admin import bootstrap
+from admin import *
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
