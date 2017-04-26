@@ -35,8 +35,6 @@ class Monitor(object):
 				pinfo = proc.as_dict(attrs=['pid'])	
 			except psutil.NoSuchProcess:
 				pass
-			except psutil.AccessDenied:
-				pass
 			else:
 				try:
 					proci = psutil.Process(pinfo['pid'])
@@ -72,6 +70,8 @@ class Monitor(object):
 									#	# print os.path.join(root, filename)
 									
 							return True
+				except psutil.AccessDenied:
+					pass
 				except Exception as e:
 					print "EXCEPTION THROWN"
 					print e
