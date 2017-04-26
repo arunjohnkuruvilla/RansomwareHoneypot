@@ -3,7 +3,7 @@ import ctypes
 import sys
 import os
 
-sys.path.append('src')
+sys.path.append('./src')
 from monitor import Monitor
 from admin import Admin
 
