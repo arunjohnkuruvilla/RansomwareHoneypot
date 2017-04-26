@@ -70,22 +70,25 @@ class ERROR(enum.IntEnum):
     OOM = 8
     SHARE = 26
 
+class Admin(object):
+    def __init__():
+        return 
 
-def bootstrap(script_name):
-    # Get current working directory
-    current_path = str(os.path.dirname(os.path.realpath(__file__)))
+    def bootstrap(self, script_name):
+        # Get current working directory
+        current_path = str(os.path.dirname(os.path.realpath(__file__)))
 
-    argument_line = "/k python " + current_path + '\\' + script_name
-    argument_line = u''.join(argument_line)
-    print argument_line
+        argument_line = "/k python " + current_path + '\\' + script_name
+        argument_line = u''.join(argument_line)
+        print argument_line
 
-    hinstance = ctypes.windll.shell32.ShellExecuteW(
-        None, 
-        u'runas', 
-        unicode("cmd.exe"), 
-        argument_line, 
-        None, 
-        SW.SHOWNORMAL
-    )
-    if hinstance <= 32:
-        raise RuntimeError(ERROR(hinstance))
+        hinstance = ctypes.windll.shell32.ShellExecuteW(
+            None, 
+            u'runas', 
+            unicode("cmd.exe"), 
+            argument_line, 
+            None, 
+            SW.SHOWNORMAL
+        )
+        if hinstance <= 32:
+            raise RuntimeError(ERROR(hinstance))
