@@ -4,5 +4,5 @@ class Config(dict):
 		self['package_src_path'] = os.path.dirname(os.path.realpath(__file__))
 		self['package_externals_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + '\externals'
 
-	object.__getitem__(self, key):
+	def __getitem__(self, key):
 		return self[key]
