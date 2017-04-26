@@ -11,6 +11,7 @@ import src.admin as admin
 
 def main():
 	if ctypes.windll.shell32.IsUserAnAdmin():
+		print "reached here"
 		monitor_object = monitor.Monitor()
 		monitor_object.initialize()
 	else:

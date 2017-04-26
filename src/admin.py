@@ -81,7 +81,6 @@ class Admin(object):
 
         argument_line = "/k python " + script_path
         argument_line = u''.join(argument_line)
-        print argument_line
 
         hinstance = ctypes.windll.shell32.ShellExecuteW(
             None, 
