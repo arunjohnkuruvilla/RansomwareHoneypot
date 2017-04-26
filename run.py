@@ -5,7 +5,7 @@ import os
 
 sys.path.append('src')
 import monitor
-from admin import *
+import admin 
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
@@ -15,7 +15,7 @@ def main():
 		monitor_object = monitor.Monitor()
 		monitor_object.initialize()
 	else:
-		bootstrap(sys.argv[0])
+		admin.bootstrap(sys.argv[0])
 		sys.exit(0)
 
 if __name__ == '__main__':
