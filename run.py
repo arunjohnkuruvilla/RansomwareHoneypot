@@ -4,8 +4,8 @@ import sys
 import os
 
 sys.path.append('src')
-import monitor
-import admin
+from monitor import Monitor
+from admin import Admin
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
