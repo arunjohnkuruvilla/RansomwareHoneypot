@@ -12,8 +12,11 @@ import src.admin as admin
 def main():
 	if ctypes.windll.shell32.IsUserAnAdmin():
 		print "reached here"
-		monitor_object = monitor.Monitor()
-		monitor_object.initialize()
+		try:
+			monitor_object = monitor.Monitor()
+			monitor_object.initialize()
+		except Exception as e:
+			print e.message
 	else:
 		print os.path.dirname(os.path.abspath(__file__))
 		admin_object = admin.Admin()
