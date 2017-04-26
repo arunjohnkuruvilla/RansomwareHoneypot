@@ -32,50 +32,48 @@ class Monitor(object):
 	def monitor_processlist(self):
 		for proc in psutil.process_iter():
 			try:
-				pinfo = proc.as_dict(attrs=['pid'])	
-			except psutil.NoSuchProcess:
-				pass
-			else:
-				try:
-					proci = psutil.Process(pinfo['pid'])
-					for files in proci.open_files() :
-						match = self.regex_object.search(str(files))
-						if match is not None:
+				pinfo = proc.as_dict(attrs=['pid'])
+				proci = psutil.Process(pinfo['pid'])
+				for files in proci.open_files() :
+					match = self.regex_object.search(str(files))
+					if match is not None:
 
-							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
+						print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 
-							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
+						dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 
-							print dumpcmd
+						print dumpcmd
 
-							print self.config['package_externals_path']			
+						print self.config['package_externals_path']			
 							 
-							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
+						#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							
-							try:
-								p = subprocess.check_call(dumpcmd)
-							except Exception as e:
-								print "exception thrown by subprocess"
-								print e.message
-								return True
+						try:
+							p = subprocess.check_call(dumpcmd)
+						except Exception as e:
+							print "exception thrown by subprocess"
+							print e.message
+							return True
 
-							while(True):
-								time.sleep(1)
-								for root, dirnames, filenames in os.walk(self.config['package_dump']):
-									for filename in fnmatch.filter(filenames, '*.img'):
-										print os.path.join(root, filename)
-										break
+						while(True):
+							time.sleep(1)
+							for root, dirnames, filenames in os.walk(self.config['package_dump']):
+								for filename in fnmatch.filter(filenames, '*.img'):
+									print os.path.join(root, filename)
+									break
 									#	print filename
 									#	print filename
 									#	# print os.path.join(root, filename)
 									
-							return True
-				except psutil.AccessDenied:
-					pass
-				except Exception as e:
-					print "EXCEPTION THROWN"
-					print e
-					pass
+						return True	
+			except psutil.NoSuchProcess:
+				pass
+			except psutil.AccessDenied:
+				pass
+			except Exception as e:
+				print "EXCEPTION THROWN"
+				print e
+				pass
 		return False
 
 	def extract_image():
