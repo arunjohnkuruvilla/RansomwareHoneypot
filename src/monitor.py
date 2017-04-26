@@ -46,19 +46,14 @@ class Monitor(object):
 							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'	
 
 							print self.config['package_externals_path']			
-							
-							try: 
-								#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
-								p = subprocess.call([dumpcmd])
+							 
+							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
+							p = subprocess.call([dumpcmd])
 								
-							except Exception as e:
-								print e.message
-								pass
-
 							while(True):
 								for root, dirnames, filenames in os.walk(self.config['package_path']):
-									if fnmatch.filter(filenames, '*.img') != []:
-										print filename
+									print fnmatch.filter(filenames, '*.img') != []:
+									#	print filename
 									#	print filename
 									#	# print os.path.join(root, filename)
 									
