@@ -1,6 +1,6 @@
 import config
 
-class FS(object):
+class Report(object):
 	def __init__(self):
 		self.config = config.Config()
 

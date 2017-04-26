@@ -29,6 +29,7 @@ def main():
 			monitor_object = monitor.Monitor()
 			monitor_status = monitor_object.initialize()
 			print monitor_status
+			print "monitor returned success"
 			if monitor_status:
 				report_object = report.Report()
 				report_object.generate_report()
