@@ -2,7 +2,7 @@
 # coding: utf-8
 import sys
 import ctypes
-
+import enum
 
 '''
 def command(argv=None, debug=False):

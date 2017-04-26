@@ -1,11 +1,11 @@
 #! /usr/bin/env python2.7
 import ctypes
-import enum
 import sys
 import os
 
-import src.monitor as monitor
-import src.admin as admin
+sys.path.append('src')
+import monitor 
+import admin 
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
