@@ -3,9 +3,8 @@ import ctypes
 import sys
 import os
 
-sys.path.append('./src')
-from monitor import Monitor
-from admin import Admin
+import src.monitor
+import src.admin
 
 # Reference:
 # msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
