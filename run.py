@@ -16,7 +16,7 @@ def main():
 	else:
 		print os.path.dirname(os.path.abspath(__file__))
 		admin_object = admin.Admin()
-		admin_object.bootstrap(os.path.dirname(os.path.abspath(__file__)))
+		admin_object.bootstrap(os.path.abspath(__file__))
 		sys.exit(0)
 
 if __name__ == '__main__':
