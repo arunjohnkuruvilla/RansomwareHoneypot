@@ -79,7 +79,7 @@ class Admin(object):
     def bootstrap(self, script_path):
         # Get current working directory
 
-        argument_line = "/k python " + script_path + '\\' + script_name
+        argument_line = "/k python " + script_path
         argument_line = u''.join(argument_line)
         print argument_line
 
