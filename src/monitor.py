@@ -35,6 +35,8 @@ class Monitor(object):
 				pinfo = proc.as_dict(attrs=['pid'])	
 			except psutil.NoSuchProcess:
 				pass
+			except psutil.AccessDenied:
+				pass
 			else:
 				try:
 					proci = psutil.Process(pinfo['pid'])
