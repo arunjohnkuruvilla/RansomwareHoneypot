@@ -33,6 +33,7 @@ class Monitor(object):
 		for proc in psutil.process_iter():
 			try:
 				pinfo = proc.as_dict(attrs=['pid'])
+				print self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 			except psutil.NoSuchProcess:
 				pass
 			else:
@@ -47,7 +48,7 @@ class Monitor(object):
 							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 
 							print dumpcmd
-							
+
 							print self.config['package_externals_path']			
 							 
 							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
