@@ -3,11 +3,12 @@ import os
 from random import choice
 from string import ascii_lowercase
 
-from fpdf import FPDF
+# from fpdf import FPDF
 
 class FS(object):
 
 	def generate_pdf(self):
+		'''
 		pdf = FPDF()
 		pdf.add_page()
 		pdf.set_font('Arial', 'B', 16)
@@ -15,6 +16,7 @@ class FS(object):
 			s = ''.join([choice(ascii_lowercase) for _ in range(1000000)])
 			pdf.cell(40, 10, s)
 		pdf.output('file_system/sample.pdf', 'F')
+		'''
 		return
 
 	def generate_xls(self):
