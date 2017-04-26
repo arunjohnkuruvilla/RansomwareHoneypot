@@ -32,8 +32,9 @@ def main():
 	else:
 		# If current user does not have adminstrator privileges
 		current_script = config_object['package_path'] + '\\' + __file__
+		
 		admin_object = admin.Admin()
-		admin_object.bootstrap()
+		admin_object.bootstrap(current_script)
 		sys.exit(0)
 
 if __name__ == '__main__':
