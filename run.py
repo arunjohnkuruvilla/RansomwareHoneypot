@@ -1,26 +1,39 @@
-#! /usr/bin/env python2.7
+# -*- coding: utf-8 -*-
+"""
+    run
+    ~~~~~~~~~~~~
+
+    Implements admin priviledge escalation.
+
+    :copyright: (c) 2017 by Arun John Kuruvilla.
+"""
 import ctypes
 import sys
 import os
 
 import src.monitor as monitor
 import src.admin as admin
-
-# Reference:
-# msdn.microsoft.com/en-us/library/windows/desktop/bb762153(v=vs.85).aspx
+import src.config as config
 
 def main():
+	config_object = config.Config()
+	"""Updates the values in the config from a Python file.
+	"""
+
 	if ctypes.windll.shell32.IsUserAnAdmin():
-		print "reached here"
+		# If current user has adminstrator privileges
+		# Initialize and start monitor object
+		print "Current priviledge level is Administrator. Initializing and starting monitor."
 		try:
 			monitor_object = monitor.Monitor()
 			monitor_object.initialize()
 		except Exception as e:
 			print e.message
 	else:
-		print os.path.dirname(os.path.abspath(__file__))
+		# If current user does not have adminstrator privileges
+		current_script = config_object['package_path'] + '\\' + __file__
 		admin_object = admin.Admin()
-		admin_object.bootstrap(os.path.abspath(__file__))
+		admin_object.bootstrap()
 		sys.exit(0)
 
 if __name__ == '__main__':
