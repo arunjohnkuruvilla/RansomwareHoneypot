@@ -15,7 +15,8 @@ def main():
 		monitor_object = monitor.Monitor()
 		monitor_object.initialize()
 	else:
-		admin.bootstrap(sys.argv[0])
+		admin_object = admin.Admin()
+		admin_object.bootstrap(sys.argv[0])
 		sys.exit(0)
 
 if __name__ == '__main__':
