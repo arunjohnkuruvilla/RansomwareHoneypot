@@ -51,7 +51,8 @@ class Monitor(object):
 							print self.config['package_externals_path']			
 							 
 							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
-							p = subprocess.call([dumpcmd])
+							p = subprocess.Popen([dumpcmd])
+							print p
 								
 							while(True):
 								time.sleep(1)
