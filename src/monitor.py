@@ -55,6 +55,9 @@ class Monitor(object):
 								p = subprocess.Popen([dumpcmd])
 								print p
 								
+							except Exception as e:
+								pass
+								
 							while(True):
 								time.sleep(1)
 								for root, dirnames, filenames in os.walk(self.config['package_dump']):
