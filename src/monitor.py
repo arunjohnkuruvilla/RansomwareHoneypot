@@ -53,7 +53,7 @@ class Monitor(object):
 							#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							
 							try:
-								p = subprocess.check_call([dumpcmd], stdout=FNULL, stderr=subprocess.STDOUT)
+								p = subprocess.check_call(dumpcmd)
 							except Exception as e:
 								print "exception thrown by subprocess"
 								print e.message
@@ -71,6 +71,7 @@ class Monitor(object):
 									
 							return True
 				except Exception as e:
+					print "EXCEPTION THROWN"
 					print e.message
 					pass
 		return False
