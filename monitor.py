@@ -11,9 +11,13 @@ import admin
 import glob
 import fnmatch
 
+import config
+
 class Monitor(object):
 	# Initialization for Monitor Class
 	def __init__(self, regex=None):
+		self.config = config.Config
+		print self.config
 		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
 			self.regex = regex
