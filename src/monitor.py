@@ -49,7 +49,7 @@ class Monitor(object):
 						#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 							
 						
-						p = subprocess.check_call(dumpcmd, stdout=FNULL, stderr=subprocess.STDOUT)
+						p = subprocess.check_call(dumpcmd, stdout=subprocess.FNULL, stderr=subprocess.STDOUT)
 						print "mem called"
 						print p
 						'''
