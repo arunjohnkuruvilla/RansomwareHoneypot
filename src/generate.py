@@ -25,7 +25,7 @@ class FS(object):
 	def generate_txt(self):
 		return
 
-	def generate_dir_tree(self):
+	def create_dir_tree(self):
 		if not os.path.exists("file_system"):
 			os.makedirs("file_system")
 		if not os.path.exists("memory_dumps"):
