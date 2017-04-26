@@ -90,7 +90,8 @@ class Monitor(object):
 		while True:
 			status = self.monitor_processlist()
 			if status == True:
-				return	
+				break
+		return True
 
 def main():
 	monitor_object = Monitor()
