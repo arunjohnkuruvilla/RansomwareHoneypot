@@ -42,29 +42,21 @@ class Monitor(object):
 						if match is not None:
 
 							print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
-							
-							offpid = pinfo['pid']
-
-							# randdump = "[" + str(time.time()) + "]dump_" + str(offpid) + ".dmp";
-
-							# print "Dumpfile: " + randdump
 
 							dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat'	
-							
+
 							print self.config['package_externals_path']			
 							
 							try: 
-								#os.system(dumpcmd)
 								#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 								p = subprocess.call([dumpcmd])
-								p.communicate()
 								
 							except Exception as e:
 								print e.message
 								pass
 
 							while(True):
-								for root, dirnames, filenames in os.walk(self.current_path):
+								for root, dirnames, filenames in os.walk(self.config['package_path']):
 									if fnmatch.filter(filenames, '*.img') != []:
 										print filename
 									#	print filename
