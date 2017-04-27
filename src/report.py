@@ -7,6 +7,8 @@
 
     :copyright: (c) 2017 by Arun John Kuruvilla.
 """
+import time
+
 import config
 
 class Report(object):
