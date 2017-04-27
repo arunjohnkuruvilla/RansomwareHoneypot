@@ -49,6 +49,7 @@ def main():
 			admin_object.bootstrap(current_script)
 			sys.exit(0)
 	except Exception as e:
+		print e.message
 		print "[-] A fatal system error has occured. Exiting."
 
 if __name__ == '__main__':
