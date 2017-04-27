@@ -26,7 +26,7 @@ class FS(object):
 			s = ''.join([choice(ascii_lowercase) for _ in range(1000000)])
 			pdf.cell(40, 10, s)
 
-		output_location = self.random_name_generate(".pdf")
+		output_location = self.generate_random_name(".pdf")
 		pdf.output(output_location, 'F')
 		print "[+] File saved to " + output_location
 		return
