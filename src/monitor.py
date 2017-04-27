@@ -43,7 +43,7 @@ class Monitor(object):
 					match = self.regex_object.search(str(files))
 					if match is not None:
 
-						print "File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
+						print "[+] File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
 
 						dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 

@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+    filesystem
+    ~~~~~~~~~~~~
+
+    Implements filesystem generation functionality.
+
+    :copyright: (c) 2017 by Arun John Kuruvilla.
+"""
+
 import sys
 import src.filesystem as filesystem
 
@@ -12,6 +22,16 @@ def module_check():
 
 def help_text():
 	return
+
+def generate():
+	""" Call the filesystem object to setup the file system
+	"""
+	file_system = filesystem.FS()
+	file_system.create_dir_tree()
+	file_system.generate_pdf()
+	file_system.generate_xls()
+	file_system.generate_txt()
+
 def main():
 	if len(sys.argv) < 2:
 		print "No command given"
@@ -23,13 +43,9 @@ def main():
 		else:
 			print "Required modules not present."
 
-	# Generate folder structure
 	elif sys.argv[1] == "generate":
-		file_system = filesystem.FS()
-		file_system.create_dir_tree()
-		file_system.generate_pdf()
-		file_system.generate_xls()
-		file_system.generate_txt()
+		generate()
+
 	else:
 		print "Invalid command given"
 		print "usage: setup.py [-h] command"
