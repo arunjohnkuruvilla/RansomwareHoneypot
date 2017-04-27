@@ -47,28 +47,11 @@ class Monitor(object):
 						print self.config['package_externals_path']			
 							 
 						#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
-							
 						
 						p = subprocess.check_call(dumpcmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 						print "mem called"
 						print p
-						'''
-						except Exception as e:
-							print "exception thrown by subprocess"
-							print e.message
-							return True
-						'''
-						'''
-						while(True):
-							time.sleep(1)
-							for root, dirnames, filenames in os.walk(self.config['package_dump']):
-								for filename in fnmatch.filter(filenames, '*.img'):
-									print os.path.join(root, filename)
-									break
-									#	print filename
-									#	print filename
-									#	# print os.path.join(root, filename)
-						'''
+
 						return True	
 			except psutil.NoSuchProcess:
 				pass

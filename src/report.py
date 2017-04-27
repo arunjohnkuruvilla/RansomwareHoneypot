@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+    report
+    ~~~~~~~~~~~~
+
+    Implements report generation functions.
+
+    :copyright: (c) 2017 by Arun John Kuruvilla.
+"""
 import config
 
 class Report(object):
@@ -5,4 +14,10 @@ class Report(object):
 		self.config = config.Config()
 
 	def generate_report(self):
+		while(True):
+			time.sleep(1)
+			for root, dirnames, filenames in os.walk(self.config['package_dump']):
+				for filename in fnmatch.filter(filenames, '*.img'):
+					print os.path.join(root, filename)
+					break
 		print "[+] Report generated."
