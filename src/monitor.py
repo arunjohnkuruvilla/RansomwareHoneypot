@@ -16,7 +16,6 @@ import config
 class Monitor(object):
 	# Initialization for Monitor Class
 	def __init__(self, regex=None):
-		print "initial"
 		self.config = config.Config()
 		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
@@ -41,15 +40,9 @@ class Monitor(object):
 
 						dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 
-						print dumpcmd
-
-						print self.config['package_externals_path']			
-							 
 						#subprocess.check_call(dumpcmd, "", stdin=None, stdout=None, stderr=None, shell=False)
 						
 						p = subprocess.check_call(dumpcmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-						print "mem called"
-						print p
 
 						return True	
 			except psutil.NoSuchProcess:
@@ -68,7 +61,6 @@ class Monitor(object):
 				print os.path.join(root, filename)
 		return 
 	def initialize(self):
-		print "monitor initializing"
 		while True:
 			status = self.monitor_processlist()
 			if status == True:
