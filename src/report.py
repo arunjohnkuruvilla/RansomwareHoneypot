@@ -15,9 +15,9 @@ import fnmatch
 import config
 
 class Report(object):
-	
+
 	def __init__(self):
-		self.config = config.Config()
+		self.config = config.configuration
 
 	def generate_report(self):
 		file_found_status = False

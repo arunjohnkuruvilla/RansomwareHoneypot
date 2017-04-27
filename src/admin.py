@@ -49,7 +49,7 @@ class ERROR(enum.IntEnum):
 
 class Admin(object):
     def __init__(self):
-        self.config = configuration
+        self.config = config.configuration
 
     def bootstrap(self, script_path):
         if script_path == None:
