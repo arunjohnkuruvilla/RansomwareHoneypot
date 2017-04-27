@@ -19,10 +19,14 @@ class Report(object):
 		self.config = config.Config()
 
 	def generate_report(self):
-		while(True):
+		file_found_status = False
+		file_location = ""
+		while(not file_found_status):
 			time.sleep(1)
 			for root, dirnames, filenames in os.walk(self.config['package_dump_path']):
 				for filename in fnmatch.filter(filenames, '*.img'):
-					print os.path.join(root, filename)
-					break
+					file_location = os.path.join(root, filename)
+					file_found_status = True
+
+		print "[+] File image saved to: " + file_location
 		print "[+] Report generated."
