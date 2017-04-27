@@ -20,7 +20,7 @@ def main():
 	"""Get the global configuration object
 	"""
 
-	config_object = configuration
+	config_object = config.configuration
 
 	try:
 		if ctypes.windll.shell32.IsUserAnAdmin():
