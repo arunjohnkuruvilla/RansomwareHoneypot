@@ -1,5 +1,12 @@
-#! /usr/bin/env python2.7
+# -*- coding: utf-8 -*-
+"""
+    monitor
+    ~~~~~~~~~~~~
 
+    Implements monitoring functionality.
+
+    :copyright: (c) 2017 by Arun John Kuruvilla.
+"""
 import psutil
 import time
 import sys
