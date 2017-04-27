@@ -39,9 +39,7 @@ def generate():
 	"""
 	file_system = filesystem.FS()
 	file_system.create_dir_tree()
-	file_system.generate_pdf()
-	file_system.generate_xls()
-	file_system.generate_txt()
+	file_system.generate_random()
 
 def main():
 	if len(sys.argv) < 2:

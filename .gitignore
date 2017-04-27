@@ -7,5 +7,8 @@ volatility
 /dump
 *.img
 *.pdf
+*.xlsx
+*.xls
+*.txt
 *.pyc
 *.md5git
