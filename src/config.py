@@ -20,3 +20,5 @@ class Config(dict):
 	def from_file(self):
 		"""Updates the values in the config from a Python file."""
 		return
+
+configuration = Config()

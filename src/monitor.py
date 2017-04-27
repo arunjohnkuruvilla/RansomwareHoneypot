@@ -23,7 +23,7 @@ import config
 class Monitor(object):
 	# Initialization for Monitor Class
 	def __init__(self, regex=None):
-		self.config = config.Config()
+		self.config = config.configuration
 		self.current_path = os.path.dirname(os.path.realpath(__file__))
 		if regex != None:
 			self.regex = regex
@@ -35,6 +35,8 @@ class Monitor(object):
 
 	# function that monitors files open
 	def monitor_processlist(self):
+		"""
+		"""
 		for proc in psutil.process_iter():
 			try:
 				pinfo = proc.as_dict(attrs=['pid'])
@@ -57,17 +59,14 @@ class Monitor(object):
 			except psutil.AccessDenied:
 				pass
 			except Exception as e:
-				print "EXCEPTION THROWN"
-				print e
+				print "Unknown exception has occured. Monitor terminating."
 				pass
+
 		return False
 
-	def extract_image():
-		for root, dirnames, filenames in os.walk(os.path.dirname(os.path.realpath(__file__))):
-			for filename in fnmatch.filter(filenames, '*.img'):
-				print os.path.join(root, filename)
-		return 
 	def initialize(self):
+		""" Starts an infinte loop that monitors files open by a process
+		"""
 		while True:
 			status = self.monitor_processlist()
 			if status == True:
@@ -75,6 +74,8 @@ class Monitor(object):
 		return True
 
 def main():
+	""" Function used for testting
+	"""
 	monitor_object = Monitor()
 	monitor_object.intialize()
 

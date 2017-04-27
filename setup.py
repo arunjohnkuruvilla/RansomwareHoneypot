@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    filesystem
+    setup
     ~~~~~~~~~~~~
 
-    Implements filesystem generation functionality.
+    Implements basic installation and setup of filesystem.
 
     :copyright: (c) 2017 by Arun John Kuruvilla.
 """
@@ -12,15 +12,26 @@ import sys
 import src.filesystem as filesystem
 
 def module_check():
+	""" Checks whether required modules are installed
+	"""
 	status = True
 	try:
 		import fpdf
-	except ImportError:
-		print "FPDF module not installed."
+		import enum
+	except ImportError as e:
 		status = False
+		if "fpdf" in repr(e):
+			print "FPDF module not installed. Run the following commands:"
+			print "python -m pip install fpdf"
+		if "enum" in repr(e):
+			print "Enum module not installed. Run the following commands:"
+			print "python -m pip install enum34"
+
 	return status
 
 def help_text():
+	""" Prints general help text
+	"""
 	return
 
 def generate():
