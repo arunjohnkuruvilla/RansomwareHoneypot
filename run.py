@@ -24,7 +24,8 @@ def main():
 	if ctypes.windll.shell32.IsUserAnAdmin():
 		# If current user has adminstrator privileges
 		# Initialize and start monitor object
-		print "Current priviledge level is Administrator. Initializing and starting monitor."
+		print "[+] Current priviledge level is Administrator."
+		print "[+] Initializing and starting monitor."
 		try:
 			monitor_object = monitor.Monitor()
 			monitor_status = monitor_object.initialize()
@@ -35,7 +36,9 @@ def main():
 		except Exception as e:
 			print e.message
 	else:
-		print "Current priviledge level is not Administrator. Initializing and starting privilege escalation."
+		print "[+] Current priviledge level is not Administrator."
+		print "[+] Initializing and starting privilege escalation."
+		
 		# If current user does not have adminstrator privileges
 		current_script = config_object['package_path'] + '\\' + __file__
 
