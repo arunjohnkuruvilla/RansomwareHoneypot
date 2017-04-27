@@ -10,6 +10,8 @@
 import time
 import os
 
+import fnmatch
+
 import config
 
 class Report(object):
