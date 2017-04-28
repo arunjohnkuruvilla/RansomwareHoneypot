@@ -70,10 +70,10 @@ class FS(object):
 				self.generate_txt()
 
 	def create_dir_tree(self):
-		if not os.path.exists("file_system"):
-			os.makedirs("file_system")
-		if not os.path.exists("memory_dumps"):
-			os.makedirs("memory_dumps")
+		if not os.path.exists(self.config['package_filesystem_path']):
+			os.makedirs(self.config['package_filesystem_path'])
+		if not os.path.exists(self.config['package_dump_path']):
+			os.makedirs(self.config['package_dump_path'])
 
 def main():
 	file_system = FS()
