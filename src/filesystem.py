@@ -64,7 +64,7 @@ class FS(object):
 				# self.generate_pdf()
 				self.generate_xls()
 		else:
-			for x in xrange(0, 10):
+			for x in xrange(0, 5):
 				self.generate_pdf()
 				# self.generate_xls()
 				self.generate_txt()
