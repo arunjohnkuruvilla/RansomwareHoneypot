@@ -25,7 +25,7 @@ class Config(dict):
 		self['package_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 		self['package_src_path'] = os.path.dirname(os.path.realpath(__file__))
 
-		self['system_home_path'] = os.path.expanduser("~") + separator + 'external' + separator
+		self['package_filesystem_path'] = os.path.expanduser("~") + separator + 'filesystem' + separator
 		# self['package_filesystem_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'file_system' + separator
 		self['package_externals_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'externals' + separator
 		self['package_dump_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'memory_dumps' + separator
