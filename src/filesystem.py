@@ -32,6 +32,7 @@ class FS(object):
 		return
 
 	def generate_xls(self, filename=None):
+		""""""
 		'''
 		data = OrderedDict() # from collections import OrderedDict
 		random_data = []
