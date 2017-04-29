@@ -14,11 +14,13 @@ class FS(object):
 		self.config = config.configuration
 
 	def generate_random_name(self, extenstion):
+		""" Generate random names for files"""
 		random_index = ''.join([choice(ascii_lowercase) for _ in range(5)])
 		output_location = self.config['package_filesystem_path'] + 'sample' + str(random_index) + extenstion
 		return output_location
 
 	def generate_pdf(self, filename=None):
+		""" Generate pdf files containing random data."""
 		pdf = FPDF()
 		pdf.add_page()
 		pdf.set_font('Arial', 'B', 16)
@@ -32,40 +34,30 @@ class FS(object):
 		return
 
 	def generate_xls(self, filename=None):
-		""""""
-		'''
-		data = OrderedDict() # from collections import OrderedDict
-		random_data = []
-		random_content = []
-		for x in xrange(0, 10000):
-			random_content.append(choice(ascii_lowercase))
-		for x in xrange(0, 2):
-			random_data.append(random_content)
-
-		data.update({"Sheet 1": random_data})
-
-		output_location = self.random_name_generate(".xlsx")
-		save_data(output_location, data)
-		print "[+] File saved to " + output_location
-		'''
+		""" Generate xlsx files containing random data."""
 		return
 
 	def generate_txt(self, filename=None):
+		""" Generate txt files containing random data."""
 		output_location = self.generate_random_name(".txt")
 		output_file = open(output_location, "w")
-		for x in xrange(0, 100):
+		for x in xrange(0, 50):
 			s = ''.join([choice(ascii_lowercase) for _ in range(1000000)])
 			output_file.write(s)
 		print "[+] File saved to " + output_location
 		return
 
 	def generate_random(self, count=None):
+		""" Generate random pdf, xlsx and text files containing random data.
+		If a the number of files is not provided, a default number of files are provided. 
+		Default number of files is specified in config.py
+		"""
 		if count:
 			for x in xrange(0, count):
 				# self.generate_pdf()
 				self.generate_xls()
 		else:
-			for x in xrange(0, 5):
+			for x in xrange(0, self.config['random_file_count']):
 				self.generate_pdf()
 				# self.generate_xls()
 				self.generate_txt()

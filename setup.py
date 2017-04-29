@@ -9,6 +9,7 @@
 """
 
 import sys
+
 import src.filesystem as filesystem
 
 def module_check():
@@ -18,14 +19,18 @@ def module_check():
 	try:
 		import fpdf
 		import enum
+		import psutil
 	except ImportError as e:
 		status = False
 		if "fpdf" in repr(e):
-			print "FPDF module not installed. Run the following commands:"
-			print "python -m pip install fpdf"
+			print "[-] FPDF module not installed. Run the following commands:"
+			print "[-] python -m pip install fpdf"
 		if "enum" in repr(e):
+			print "[-] Enum module not installed. Run the following commands:"
+			print "[-] python -m pip install enum34"
+		if "psutil" in repr(e):
 			print "Enum module not installed. Run the following commands:"
-			print "python -m pip install enum34"
+			print "python -m pip install psutil"
 
 	return status
 

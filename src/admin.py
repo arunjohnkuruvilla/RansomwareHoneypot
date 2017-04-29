@@ -16,7 +16,8 @@ import enum
 import config
 
 class SW(enum.IntEnum):
-
+    """ Window parameter for ctypes.windll.shell32.ShellExecuteW()
+    """
     HIDE = 0
     MAXIMIZE = 3
     MINIMIZE = 6
@@ -32,7 +33,8 @@ class SW(enum.IntEnum):
 
 
 class ERROR(enum.IntEnum):
-
+    """ Error codes for ctypes.windll.shell32.ShellExecuteW()
+    """
     ZERO = 0
     FILE_NOT_FOUND = 2
     PATH_NOT_FOUND = 3
@@ -52,6 +54,8 @@ class Admin(object):
         self.config = config.configuration
 
     def bootstrap(self, script_path):
+        """ Elecated the privlege of the script given
+        """
         if script_path == None:
             raise TypeError("No script path provided for excalation")
 
@@ -73,3 +77,5 @@ class Admin(object):
         )
         if hinstance <= 32:
             raise RuntimeError(ERROR(hinstance))
+            
+        return

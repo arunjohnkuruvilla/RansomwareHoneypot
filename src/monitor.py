@@ -7,16 +7,13 @@
 
     :copyright: (c) 2017 by Arun John Kuruvilla.
 """
-import psutil
 import time
 import sys
 import os
 import subprocess
-import threading
 import re
-import admin
-import glob
-import time 
+
+import psutil
 
 import config
 
@@ -46,6 +43,7 @@ class Monitor(object):
 					if match is not None:
 
 						print "[+] File being accessed at " + time.ctime() + " by process " + str(pinfo['pid'])
+						print "[+] Process with PID: " + str(pinfo['pid']) + " is suspended for memory imaging."
 
 						dumpcmd = self.config['package_externals_path'] + '\MemoryDD.bat -output ' + self.config['package_dump_path']	
 
@@ -59,7 +57,7 @@ class Monitor(object):
 			except psutil.AccessDenied:
 				pass
 			except Exception as e:
-				print "Unknown exception has occured. Monitor terminating."
+				print "[-] Unknown exception has occured. Restarting monitor."
 				pass
 
 		return False

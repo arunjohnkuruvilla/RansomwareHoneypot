@@ -13,7 +13,10 @@ from sys import platform as _platform
 class Config(dict):
 	"""Works exactly like a dict"""
 	def __init__(self):
+		""" Set global configuration variables. 
+		"""
 
+		# Sets global paths
 		if _platform == "linux" or _platform == "linux2":
 		   separator = '/'
 		elif _platform == "darwin":
@@ -22,16 +25,20 @@ class Config(dict):
 			separator = '\\'
 
 		self['separator'] = separator
+
 		self['package_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 		self['package_src_path'] = os.path.dirname(os.path.realpath(__file__))
-
 		self['package_filesystem_path'] = os.path.expanduser("~") + separator + 'filesystem' + separator
-		# self['package_filesystem_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'file_system' + separator
 		self['package_externals_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'externals' + separator
 		self['package_dump_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'memory_dumps' + separator
 
+		# Sets global counts
+		self['random_file_count'] = 5
+
 	def from_file(self):
-		"""Updates the values in the config from a Python file."""
+		"""Updates the values in the config from a Python file.
+		Yet to be implemented.
+		"""
 		return
 
 configuration = Config()
