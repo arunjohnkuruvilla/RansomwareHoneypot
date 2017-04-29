@@ -24,7 +24,7 @@ class FS(object):
 		pdf = FPDF()
 		pdf.add_page()
 		pdf.set_font('Arial', 'B', 16)
-		for x in range(20):
+		for x in range(1):
 			s = ''.join([choice(ascii_lowercase) for _ in range(1000000)])
 			pdf.cell(40, 10, s)
 
@@ -41,7 +41,7 @@ class FS(object):
 		""" Generate txt files containing random data."""
 		output_location = self.generate_random_name(".txt")
 		output_file = open(output_location, "w")
-		for x in xrange(0, 100):
+		for x in xrange(0, 1):
 			s = ''.join([choice(ascii_lowercase) for _ in range(1000000)])
 			output_file.write(s)
 		print "[+] File saved to " + output_location
