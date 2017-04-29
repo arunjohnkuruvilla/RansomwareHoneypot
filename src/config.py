@@ -28,12 +28,12 @@ class Config(dict):
 
 		self['package_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 		self['package_src_path'] = os.path.dirname(os.path.realpath(__file__))
-		self['package_filesystem_path'] = os.path.expanduser("~") + separator + 'filesystem' + separator
+		self['package_filesystem_path'] = os.path.expanduser("~") + separator + 'Desktop' + separator + 'filesystem' + separator
 		self['package_externals_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'externals' + separator
 		self['package_dump_path'] = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + separator + 'memory_dumps' + separator
 
 		# Sets global counts
-		self['random_file_count'] = 5
+		self['random_file_count'] = 2
 
 	def from_file(self):
 		"""Updates the values in the config from a Python file.
