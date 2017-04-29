@@ -20,13 +20,6 @@ class Report(object):
 	def __init__(self):
 		self.config = config.configuration
 
-	def md5(self, fname):
-	    hash_md5 = hashlib.md5()
-	    with open(fname, "rb") as f:
-	        for chunk in iter(lambda: f.read(4096), b""):
-	            hash_md5.update(chunk)
-	    return hash_md5.hexdigest()
-
 	def generate_report(self):
 		file_found_status = False
 		file_location = ""
@@ -48,9 +41,8 @@ class Report(object):
 		report_file.write("Arun John Kuruvilla\n")
 		report_file.write("N12322107 - ajk665@nyu.edu\n")
 
-		report_file.write("Image Location" + file_location + '\n')
-		report_file.write("Image Hash: " + md5(file_location) + '\n') 
-		report_file.write("Report Location" + report_location + '\n')
+		report_file.write("Image Location: " + file_location + '\n')
+		report_file.write("Report Location: " + report_location + '\n')
 
 		print "[+] Report saved to: " + report_location
 
