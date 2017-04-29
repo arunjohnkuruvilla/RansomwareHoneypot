@@ -18,20 +18,28 @@ def module_check():
 	status = True
 	try:
 		import fpdf
-		import enum
-		import psutil
+		print '[+] Fpdf module installed.'
 	except ImportError as e:
 		status = False
 		if "fpdf" in repr(e):
 			print "[-] FPDF module not installed. Run the following commands:"
 			print "[-] python -m pip install fpdf"
+	try:
+		import enum
+		print '[+] Enum module installed.'
+	except ImportError as e:
+		status = False
 		if "enum" in repr(e):
 			print "[-] Enum module not installed. Run the following commands:"
 			print "[-] python -m pip install enum34"
+	try:
+		import psutil
+		print '[+] Psutil module installed'
+	except ImportError as e:
+		status = False
 		if "psutil" in repr(e):
 			print "Enum module not installed. Run the following commands:"
 			print "python -m pip install psutil"
-
 	return status
 
 def help_text():
@@ -53,9 +61,9 @@ def main():
 
 	if sys.argv[1] == "configure":
 		if module_check():
-			print "All required modules present."
+			print "[+] All required modules present."
 		else:
-			print "Required modules not present."
+			print "[-] Required modules not present."
 
 	elif sys.argv[1] == "generate":
 		generate()

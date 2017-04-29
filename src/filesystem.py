@@ -41,7 +41,7 @@ class FS(object):
 		""" Generate txt files containing random data."""
 		output_location = self.generate_random_name(".txt")
 		output_file = open(output_location, "w")
-		for x in xrange(0, 50):
+		for x in xrange(0, 10):
 			s = ''.join([choice(ascii_lowercase) for _ in range(1000000)])
 			output_file.write(s)
 		print "[+] File saved to " + output_location
